@@ -2,37 +2,209 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-input {
+  margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 82%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-input input{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-input input:focus-visible {
+  border: 1px solid #ccc;
+}
+
+.pagination-bar {
+  margin: 20px 0;
+  text-align: left;
+  margin-left: 140px;
+}
+
+.page-button {
+  margin: 0 10px;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  font-size: 14.5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  padding: 4px 8px;
+  background-color:#125df3;
+}
+
+.page-button.active {
+  border: none;
+  color: #1f1d1d;
+  background-color: transparent;
+}
+
+.previous-btn {
+  margin-right: 10px;
+  padding: 4px;
+  border: none;
+  background-color: #5f6061;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.previous-btn.active {
+  margin-right: 10px;
+  background-color: #125df3;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.first-page-button {
+  margin-right: 10px;
+  padding: 4px;
+  border: none;
+  background-color: #5f6061;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.first-page-button.active {
+  margin-right: 10px;
+  background-color: #125df3;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.next-btn {
+  margin-left: 10px;
+  padding: 4px;
+  border: none;
+  background-color: #5f6061;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.next-btn.active {
+  margin-right: 10px;
+  background-color: #125df3;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.last-page-button {
+  margin-left: 10px;
+  padding: 4px;
+  border: none;
+  background-color: #5f6061;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.last-page-button.active {
+  margin-right: 10px;
+  background-color: #125df3;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.edit-icon {
+  margin: 0 18px;
+  color: #d64e4e;
+}
+
+.save-icon {
+  margin: 0 18px;
+  color: #d64e4e;
+}
+
+.delete-icon {
+  margin: 0 18px;
+  color: #d64e4e;
+}
+
+.admin-ui-list {
+  background-color: rgb(239 243 252);
+  height: 47.5vw;
+}
+
+.table-members {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.each-row td input[type="text"] {
+  text-align: center;
+  border: 1px solid #ccc;
+  width: 210px;
+  padding: 4px;
+  border-radius: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.each-row td:nth-child(2), .each-row td:nth-child(3), .each-row td:nth-child(4) {
+  width: 300px;
+}
+
+.table-members table {
+  border-spacing: 0px;
+  border-collapse:separate;
+  margin-top: 20px;
+}
+
+.table-members table thead tr th {
+  padding: 13px 16px;
+  text-align: center;
+}
+
+.table-members table tbody tr {
+  background-color: rgba(255, 255, 255, 0.7);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  padding: 4px;
+}
+
+tbody tr:nth-child(2n) td {
+  padding-bottom: 20px; 
+}
+
+.table-members table tbody  tr td {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  text-align: center;
+  border-spacing: 0;
+  margin: 10px 0;
+}
+
+.table-members table tbody tr:hover {
+  background-color: rgb(186, 198, 238);
+  color: #fff;
+}
+
+.each-row.checked-active {
+  background-color: rgb(161, 161, 164);
+  color: #fff;
+}
+
+.delete-section {
+  /* float: left; */
+  display: inline-block;
+  margin-right: 350px;
+}
+
+.select-deleted {
+  background-color: #d64e4e;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
 }
