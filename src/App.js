@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import AdminUI from './components/AdminUI';
+import AdminUI from './components/userMemberList';
 
 function App() {
   return (
