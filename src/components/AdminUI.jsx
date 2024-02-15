@@ -36,7 +36,11 @@ class AdminUI extends Component {
     handleDeleteClick = (memberId) => {
         this.setState(prevState => ({
             members: prevState.members.filter(member => member.id !== memberId),
-            selectedMembers: prevState.selectedMembers.delete(memberId)
+            selectedMembers: (() => {
+                const updatedSelectedMembers = new Set(prevState.selectedMembers);
+                updatedSelectedMembers.delete(memberId);
+                return updatedSelectedMembers;
+            })()
         }));
     };
 
