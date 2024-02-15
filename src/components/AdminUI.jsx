@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { membersList } from "../action/members";
-import { CaretLeftOutlined, CaretRightOutlined, EditFilled, DeleteFilled, SaveFilled, BackwardOutlined, ForwardOutlined } from "@ant-design/icons";
+import { Pagination } from "./pagination";
+import { MemberRow } from "./memberRow";
+import '../custom-styling.css'
 
 class AdminUI extends Component {
     constructor() {
@@ -42,6 +44,10 @@ class AdminUI extends Component {
                 return updatedSelectedMembers;
             })()
         }));
+    };
+
+    handlePageChange = (pageNumber) => {
+        this.setState({ currentPage: pageNumber });
     };
 
     handleSearchChange = (event) => {
@@ -162,88 +168,33 @@ class AdminUI extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {currentMembers.map((member, index) => (
-                                <tr key={member.id} 
-                                    className={selectedMembers.has(member.id) ? "each-row checked-active" : "each-row"}
-                                >
-                                    <td><input type="checkbox" checked={selectedMembers.has(member.id)} onChange={() => this.handleCheckboxChange(member.id)} /></td>
-                                    <td>{editingMemberId === member.id ? <input type="text" value={editedMember.name || member.name} onChange={(event) => this.handleEditInputChange(event, 'name')} /> : member.name}</td>
-                                    <td>{editingMemberId === member.id ? <input type="text" value={editedMember.email || member.email} onChange={(event) => this.handleEditInputChange(event, 'email')} /> : member.email}</td>
-                                    <td>{editingMemberId === member.id ? <input type="text" value={editedMember.role || member.role} onChange={(event) => this.handleEditInputChange(event, 'role')} /> : member.role}</td>
-                                    <td>
-                                        {isEditIconClicked && editingMemberId === member.id ? 
-                                            <SaveFilled 
-                                                className="save-icon" 
-                                                onClick={this.handleSaveClick} 
-                                            /> :
-                                            <EditFilled
-                                                className="edit-icon"
-                                                onClick={() =>  {
-                                                    this.handleEditClick(member.id); 
-                                                }}
-                                            />
-                                        }
-                                        <DeleteFilled
-                                            className="delete-icon"
-                                            onClick={() => this.handleDeleteClick(member.id)}
-                                        />
-                                    </td>
-                                </tr>
+                            {currentMembers.map((member) => (
+                                <MemberRow
+                                    key={member.id}
+                                    member={member}
+                                    isSelected={selectedMembers.has(member.id)}
+                                    isEditing={editingMemberId === member.id}
+                                    onCheckboxChange={this.handleCheckboxChange}
+                                    onEditClick={this.handleEditClick}
+                                    onDeleteClick={this.handleDeleteClick}
+                                    onEditInputChange={this.handleEditInputChange}
+                                    editedMember={editedMember}
+                                    onSaveClick={this.handleSaveClick}
+                                />
                             ))}
                         </tbody>
                     </table>
                 </div>
                 
                     {/* Pagination controls */}                    
-                    <div className="pagination-bar"> 
-                        <div className="delete-section">
-                            <button className="select-deleted" onClick={this.handleDeleteSelected}>
-                                Delete Selected
-                            </button>
-                        </div> 
-
-                        <BackwardOutlined
-                            className={ currentPage === 1 ? "first-page-button" : "first-page-button active"}
-                            disabled={ currentPage === 1 }
-                            onClick={ this.handleFirstPageClick }
-                        />
-                        <CaretLeftOutlined 
-                            className={currentPage===1 ? `previous-btn` : `previous-btn active`}
-                            disabled={currentPage === 1}
-                            onClick={() =>
-                                this.setState({
-                                    currentPage: currentPage - 1
-                                })
-                            }
-                        />
-                        {pageNumbers.map((pageNumber) => (
-                            <button 
-                                key={pageNumber}
-                                onClick={() =>
-                                    this.setState({
-                                        currentPage: pageNumber
-                                    })
-                                }
-                                className={pageNumber === currentPage ? "active page-button" : "page-button"}
-                            >
-                                {pageNumber}
-                            </button>
-                        ))}
-                        <CaretRightOutlined
-                            className={currentPage === totalPages ? `next-btn` : `next-btn active`}
-                            disabled={currentPage === totalPages}
-                            onClick={() =>
-                                this.setState({
-                                    currentPage: currentPage + 1
-                                })
-                            }
-                        />
-                        <ForwardOutlined
-                            className={ currentPage === totalPages ? "last-page-button" : "last-page-button active" }
-                            disabled={currentPage === totalPages}
-                            onClick={this.handleLastPageClick}
-                        />
-                    </div>
+                    <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={this.handlePageChange}
+                    onFirstPageClick={this.handleFirstPageClick}
+                    onLastPageClick={this.handleLastPageClick}
+                    onDeleteSelected={this.handleDeleteSelected}
+                />
             </div>
         );
     }
