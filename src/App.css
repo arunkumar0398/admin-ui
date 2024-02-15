@@ -208,3 +208,73 @@ tbody tr:nth-child(2n) td {
   border: none;
   border-radius: 20px;
 }
+
+/* Responsive styling */
+
+@media only screen and (max-width: 480px) {
+
+  .table-members table thead tr th {
+    padding: 2px 6px;
+    
+  }
+
+  .table-members table tbody tr {
+    font-size: 12px;
+  }
+
+  .table-members table tbody  tr td {
+    padding-left: 0.2rem;
+    padding-right: .2rem;
+    padding-bottom: .2rem;
+    padding-top: .2rem;
+    text-align: center;
+    border-spacing: 0;
+    margin: 10px 0;
+  }
+
+  .each-row td:nth-child(2), .each-row td:nth-child(3), .each-row td:nth-child(4) {
+    width: 50px;
+  }
+
+  .delete-section {
+    display: block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .edit-icon, .delete-icon, .save-icon {
+    margin: 0 8px;
+  }
+
+  .each-row td input[type="text"] {
+    width: 44px;
+    font-size: 12px;
+  }
+
+  .select-deleted {
+    font-size: 14px;
+  }
+
+  .pagination-bar {
+    margin-left: 10px;
+  }
+
+  .first-page-button.active, .previous-btn.active, .next-btn.active, .last-page-button.active {
+    margin-right: 6px;
+    background-color: #125df3;
+    color: #fff;
+    border-radius: 50%;
+  }
+  .page-button {
+    margin: 0 6px;
+  }
+  .first-page-button, .previous-btn {
+    margin-right: 6px;
+    padding: 4px;
+  }
+
+  .next-btn, .last-page-button {
+    margin-left: 6px;
+    padding: 4px;
+  }
+}

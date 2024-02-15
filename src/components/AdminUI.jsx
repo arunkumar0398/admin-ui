@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { membersList } from "../action/members";
-import { CaretLeftOutlined, CaretRightOutlined, EditFilled, DeleteFilled, SaveFilled, BackwardFilled, BackwardOutlined, ForwardOutlined } from "@ant-design/icons";
+import { CaretLeftOutlined, CaretRightOutlined, EditFilled, DeleteFilled, SaveFilled, BackwardOutlined, ForwardOutlined } from "@ant-design/icons";
 
 class AdminUI extends Component {
     constructor() {
