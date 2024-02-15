@@ -213,6 +213,10 @@ tbody tr:nth-child(2n) td {
 
 @media only screen and (max-width: 480px) {
 
+  .admin-ui-list {
+    height: 170vw;
+  }
+
   .table-members table thead tr th {
     padding: 2px 6px;
     
@@ -253,6 +257,7 @@ tbody tr:nth-child(2n) td {
 
   .select-deleted {
     font-size: 14px;
+    padding: 6px 14px;
   }
 
   .pagination-bar {
